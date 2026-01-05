@@ -206,4 +206,29 @@ class ApiService {
       return null;
     }
   }
+
+  Future<List<Map<String, dynamic>>?> searchSuppliers(String query) async {
+    final url = '$baseUrl/suppliers/search';
+    debugPrint('ApiService: Searching suppliers for $query at $url');
+    try {
+      final response = await _httpClient.postWithRetry(
+        Uri.parse(url),
+        headers: {'Content-Type': 'application/json'},
+        body: jsonEncode({'query': query}),
+        timeout: const Duration(seconds: 30),
+        maxRetries: 2,
+      );
+
+      if (response.statusCode == 200) {
+        final Map<String, dynamic> result = jsonDecode(response.body);
+        if (result['success'] == true) {
+          return List<Map<String, dynamic>>.from(result['data']);
+        }
+      }
+      return null;
+    } catch (e) {
+      debugPrint('ApiService: Error searching suppliers: $e');
+      return null;
+    }
+  }
 }
