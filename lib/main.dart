@@ -20,6 +20,8 @@ import 'package:chem_ai/core/services/http_client_service.dart';
 import 'dart:ui';
 import 'package:flutter/foundation.dart';
 
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
 @pragma('vm:entry-point')
 Future<void> _firebaseMessagingBackgroundHandler(RemoteMessage message) async {
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -66,7 +68,11 @@ Future<void> main() async {
   }
 
   FlutterNativeSplash.remove();
-  runApp(const ChemAIApp());
+  runApp(
+    const ProviderScope(
+      child: ChemAIApp(),
+    ),
+  );
 }
 
 class ChemAIApp extends StatefulWidget {
