@@ -18,17 +18,19 @@ class SupplierDetailScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     final bool isDark = Theme.of(context).brightness == Brightness.dark;
     final String firmaAdi = supplier['firma_adi'] ?? 'Bilinmeyen Firma';
-    final String sehir = (supplier['il'] as String?)?.toUpperCase() ?? 'BELİRTİLMEMİŞ';
-    final String webUrl = supplier['web'] ?? '';
+    final String sehir =
+        (supplier['il'] as String?)?.toUpperCase() ?? 'BELİRTİLMEMİŞ';
 
     return Scaffold(
-      backgroundColor: isDark ? AppColors.backgroundDark : AppColors.backgroundLight,
+      backgroundColor: isDark
+          ? AppColors.backgroundDark
+          : AppColors.backgroundLight,
       body: SafeArea(
         child: Column(
           children: [
             // Sticky Header
             _buildHeader(context, isDark, firmaAdi),
-            
+
             Expanded(
               child: SingleChildScrollView(
                 physics: const BouncingScrollPhysics(),
@@ -39,30 +41,30 @@ class SupplierDetailScreen extends StatelessWidget {
                     // Profile Card
                     _buildProfileCard(isDark, firmaAdi, sehir),
                     const SizedBox(height: 20),
-                    
+
                     // Info Section
                     _buildSectionTitle(isDark, 'Tedarikçi Bilgileri'),
                     const SizedBox(height: 12),
                     _buildInfoCard(isDark, supplier),
                     const SizedBox(height: 20),
-                    
+
                     // Products Section
                     _buildSectionHeaderWithAction(
-                      isDark, 
-                      'Sattığı Hammaddeler', 
-                      'Tümünü Gör', 
-                      () {}
+                      isDark,
+                      'Sattığı Hammaddeler',
+                      'Tümünü Gör',
+                      () {},
                     ),
                     const SizedBox(height: 12),
                     _buildProductsList(isDark, matchedProducts),
                     const SizedBox(height: 20),
-                    
+
                     // Documents Section
                     _buildSectionTitle(isDark, 'İlgili Belgeler'),
                     const SizedBox(height: 12),
                     _buildDocumentsGrid(isDark),
                     const SizedBox(height: 24),
-                    
+
                     // Action Buttons
                     _buildActionButtons(isDark),
                     const SizedBox(height: 40),
@@ -160,7 +162,9 @@ class SupplierDetailScreen extends StatelessWidget {
             ),
             child: Center(
               child: Text(
-                name.substring(0, name.length > 2 ? 2 : name.length).toUpperCase(),
+                name
+                    .substring(0, name.length > 2 ? 2 : name.length)
+                    .toUpperCase(),
                 style: GoogleFonts.spaceGrotesk(
                   fontSize: 32,
                   fontWeight: FontWeight.bold,
@@ -228,7 +232,12 @@ class SupplierDetailScreen extends StatelessWidget {
                     Icon(Symbols.star, size: 18, color: Colors.orange, fill: 1),
                     Icon(Symbols.star, size: 18, color: Colors.orange, fill: 1),
                     Icon(Symbols.star, size: 18, color: Colors.orange, fill: 1),
-                    Icon(Symbols.star_half, size: 18, color: Colors.orange, fill: 0.5),
+                    Icon(
+                      Symbols.star_half,
+                      size: 18,
+                      color: Colors.orange,
+                      fill: 0.5,
+                    ),
                   ],
                 ),
                 const SizedBox(width: 4),
@@ -259,7 +268,11 @@ class SupplierDetailScreen extends StatelessWidget {
   }
 
   Widget _buildSectionHeaderWithAction(
-      bool isDark, String title, String actionLabel, VoidCallback onTap) {
+    bool isDark,
+    String title,
+    String actionLabel,
+    VoidCallback onTap,
+  ) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Row(
@@ -328,8 +341,14 @@ class SupplierDetailScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildInfoItem(bool isDark, IconData icon, String label, String value,
-      {bool isLink = false, VoidCallback? onTap}) {
+  Widget _buildInfoItem(
+    bool isDark,
+    IconData icon,
+    String label,
+    String value, {
+    bool isLink = false,
+    VoidCallback? onTap,
+  }) {
     return InkWell(
       onTap: onTap,
       child: Container(
@@ -446,139 +465,191 @@ class SupplierDetailScreen extends StatelessWidget {
         return Theme(
           data: Theme.of(context).copyWith(dividerColor: Colors.transparent),
           child: ExpansionTile(
-        tilePadding: const EdgeInsets.all(16),
-        shape: const RoundedRectangleBorder(),
-        title: Text(
-          name,
-          style: TextStyle(
-            fontSize: 14,
-            fontWeight: FontWeight.bold,
-            color: isDark ? Colors.white : Colors.black,
-          ),
-        ),
-        subtitle: Padding(
-          padding: const EdgeInsets.only(top: 4),
-          child: Row(
-            children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 6, vertical: 2),
-                decoration: BoxDecoration(
-                  color: isDark ? Colors.grey.shade800 : Colors.grey.shade100,
-                  borderRadius: BorderRadius.circular(4),
-                ),
-                child: const Text(
-                  'CAS: 67-64-1',
-                  style: TextStyle(fontSize: 10, fontFamily: 'monospace', color: Colors.grey),
-                ),
+            tilePadding: const EdgeInsets.all(16),
+            shape: const RoundedRectangleBorder(),
+            title: Text(
+              name,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: isDark ? Colors.white : Colors.black,
               ),
-              const SizedBox(width: 8),
-              const Text(
-                '%99.5 Saflık',
-                style: TextStyle(fontSize: 10, color: Colors.grey),
-              ),
-            ],
-          ),
-        ),
-        trailing: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 4),
-              decoration: BoxDecoration(
-                color: Colors.green.withOpacity(0.1),
-                borderRadius: BorderRadius.circular(6),
-                border: Border.all(color: Colors.green.withOpacity(0.2)),
-              ),
-              child: const Row(
+            ),
+            subtitle: Padding(
+              padding: const EdgeInsets.only(top: 4),
+              child: Row(
                 children: [
-                  CircleAvatar(radius: 3, backgroundColor: Colors.green),
-                  SizedBox(width: 6),
-                  Text(
-                    'Stokta',
-                    style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold, color: Colors.green),
+                  Container(
+                    padding: const EdgeInsets.symmetric(
+                      horizontal: 6,
+                      vertical: 2,
+                    ),
+                    decoration: BoxDecoration(
+                      color: isDark
+                          ? Colors.grey.shade800
+                          : Colors.grey.shade100,
+                      borderRadius: BorderRadius.circular(4),
+                    ),
+                    child: const Text(
+                      'CAS: 67-64-1',
+                      style: TextStyle(
+                        fontSize: 10,
+                        fontFamily: 'monospace',
+                        color: Colors.grey,
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  const Text(
+                    '%99.5 Saflık',
+                    style: TextStyle(fontSize: 10, color: Colors.grey),
                   ),
                 ],
               ),
             ),
-            const SizedBox(width: 8),
-            const Icon(Symbols.expand_more, color: Colors.grey),
-          ],
-        ),
-        children: [
-          Container(
-            padding: const EdgeInsets.all(16),
-            width: double.infinity,
-            color: isDark ? Colors.black12 : Colors.grey.shade50,
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
+            trailing: Row(
+              mainAxisSize: MainAxisSize.min,
               children: [
                 Container(
-                  padding: const EdgeInsets.all(12),
-                  decoration: BoxDecoration(
-                    color: Colors.blue.withOpacity(0.05),
-                    borderRadius: BorderRadius.circular(8),
-                    border: Border.all(color: Colors.blue.withOpacity(0.1)),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 8,
+                    vertical: 4,
                   ),
-                  child: const Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
+                  decoration: BoxDecoration(
+                    color: Colors.green.withOpacity(0.1),
+                    borderRadius: BorderRadius.circular(6),
+                    border: Border.all(color: Colors.green.withOpacity(0.2)),
+                  ),
+                  child: const Row(
                     children: [
+                      CircleAvatar(radius: 3, backgroundColor: Colors.green),
+                      SizedBox(width: 6),
                       Text(
-                        'ARAMA BAĞLAMI',
+                        'Stokta',
                         style: TextStyle(
                           fontSize: 10,
                           fontWeight: FontWeight.bold,
-                          color: Colors.blue,
+                          color: Colors.green,
                         ),
-                      ),
-                      SizedBox(height: 4),
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Icon(Symbols.science, size: 14, color: Colors.blue),
-                          SizedBox(width: 8),
-                          Expanded(
-                            child: Text(
-                              'Bu hammadde, aradığınız kriterler ile tam uyumludur.',
-                              style: TextStyle(fontSize: 11, color: Colors.blueGrey),
-                            ),
-                          ),
-                        ],
                       ),
                     ],
                   ),
                 ),
-                const SizedBox(height: 12),
-                const Row(
-                  children: [
-                    Expanded(child: _DetailItem(label: 'Marka', value: 'Thermo Scientific')),
-                    Expanded(child: _DetailItem(label: 'Ambalaj', value: '2.5L Cam Şişe')),
-                  ],
-                ),
-                const SizedBox(height: 12),
-                const Row(
-                  children: [
-                    Expanded(child: _DetailItem(label: 'Birim Fiyat', value: '€45.00 / Adet')),
-                    Expanded(child: _DetailItem(label: 'Teslimat', value: '2-3 İş Günü')),
-                  ],
-                ),
-                const SizedBox(height: 16),
-                ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: isDark ? Colors.grey.shade800 : Colors.white,
-                    foregroundColor: isDark ? Colors.white : Colors.black,
-                    elevation: 0,
-                    side: BorderSide(color: Colors.grey.shade300),
-                    minimumSize: const Size(double.infinity, 36),
-                    shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
-                  ),
-                  child: const Text('Detaylı Teknik Formu İncele', style: TextStyle(fontSize: 12)),
-                ),
+                const SizedBox(width: 8),
+                const Icon(Symbols.expand_more, color: Colors.grey),
               ],
             ),
+            children: [
+              Container(
+                padding: const EdgeInsets.all(16),
+                width: double.infinity,
+                color: isDark ? Colors.black12 : Colors.grey.shade50,
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.all(12),
+                      decoration: BoxDecoration(
+                        color: Colors.blue.withOpacity(0.05),
+                        borderRadius: BorderRadius.circular(8),
+                        border: Border.all(color: Colors.blue.withOpacity(0.1)),
+                      ),
+                      child: const Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            'ARAMA BAĞLAMI',
+                            style: TextStyle(
+                              fontSize: 10,
+                              fontWeight: FontWeight.bold,
+                              color: Colors.blue,
+                            ),
+                          ),
+                          SizedBox(height: 4),
+                          Row(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Icon(
+                                Symbols.science,
+                                size: 14,
+                                color: Colors.blue,
+                              ),
+                              SizedBox(width: 8),
+                              Expanded(
+                                child: Text(
+                                  'Bu hammadde, aradığınız kriterler ile tam uyumludur.',
+                                  style: TextStyle(
+                                    fontSize: 11,
+                                    color: Colors.blueGrey,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    const Row(
+                      children: [
+                        Expanded(
+                          child: _DetailItem(
+                            label: 'Marka',
+                            value: 'Thermo Scientific',
+                          ),
+                        ),
+                        Expanded(
+                          child: _DetailItem(
+                            label: 'Ambalaj',
+                            value: '2.5L Cam Şişe',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 12),
+                    const Row(
+                      children: [
+                        Expanded(
+                          child: _DetailItem(
+                            label: 'Birim Fiyat',
+                            value: '€45.00 / Adet',
+                          ),
+                        ),
+                        Expanded(
+                          child: _DetailItem(
+                            label: 'Teslimat',
+                            value: '2-3 İş Günü',
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 16),
+                    ElevatedButton(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: isDark
+                            ? Colors.grey.shade800
+                            : Colors.white,
+                        foregroundColor: isDark ? Colors.white : Colors.black,
+                        elevation: 0,
+                        side: BorderSide(color: Colors.grey.shade300),
+                        minimumSize: const Size(double.infinity, 36),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8),
+                        ),
+                      ),
+                      child: const Text(
+                        'Detaylı Teknik Formu İncele',
+                        style: TextStyle(fontSize: 12),
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ],
           ),
-        ],
-      ),
+        );
+      },
     );
   }
 
@@ -591,13 +662,31 @@ class SupplierDetailScreen extends StatelessWidget {
       mainAxisSpacing: 12,
       childAspectRatio: 1.5,
       children: [
-        _buildDocItem(isDark, Symbols.picture_as_pdf, 'ISO 9001 Sertifikası', 'PDF • 1.2 MB', Colors.red),
-        _buildDocItem(isDark, Symbols.description, '2024 Ürün Kataloğu', 'PDF • 4.5 MB', AppColors.primary),
+        _buildDocItem(
+          isDark,
+          Symbols.picture_as_pdf,
+          'ISO 9001 Sertifikası',
+          'PDF • 1.2 MB',
+          Colors.red,
+        ),
+        _buildDocItem(
+          isDark,
+          Symbols.description,
+          '2024 Ürün Kataloğu',
+          'PDF • 4.5 MB',
+          AppColors.primary,
+        ),
       ],
     );
   }
 
-  Widget _buildDocItem(bool isDark, IconData icon, String title, String meta, Color iconColor) {
+  Widget _buildDocItem(
+    bool isDark,
+    IconData icon,
+    String title,
+    String meta,
+    Color iconColor,
+  ) {
     return Container(
       padding: const EdgeInsets.all(12),
       decoration: BoxDecoration(
@@ -640,7 +729,9 @@ class SupplierDetailScreen extends StatelessWidget {
             backgroundColor: AppColors.primary,
             foregroundColor: Colors.white,
             minimumSize: const Size(double.infinity, 50),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         ),
         const SizedBox(height: 12),
@@ -652,7 +743,9 @@ class SupplierDetailScreen extends StatelessWidget {
             foregroundColor: AppColors.primary,
             side: const BorderSide(color: AppColors.primary),
             minimumSize: const Size(double.infinity, 50),
-            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12)),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(12),
+            ),
           ),
         ),
       ],
@@ -663,6 +756,7 @@ class SupplierDetailScreen extends StatelessWidget {
 class _DetailItem extends StatelessWidget {
   final String label;
   final String value;
+
   const _DetailItem({required this.label, required this.value});
 
   @override

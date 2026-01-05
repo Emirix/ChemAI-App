@@ -50,20 +50,43 @@ class _SupplierSearchScreenState extends State<SupplierSearchScreen> {
 
     final results = await _apiService.searchSuppliers(query);
     
-    // Extract unique cities
-    final cities = <String>{};
+    // Group results by supplier (tid)
+    final Map<int, Map<String, dynamic>> groupedSuppliers = {};
     if (results != null) {
       for (var s in results) {
-        final il = (s['il'] as String?)?.trim().toUpperCase();
-        if (il != null && il.isNotEmpty) {
-          cities.add(il);
+        final tid = s['tid'] as int?;
+        if (tid == null) continue;
+        
+        if (!groupedSuppliers.containsKey(tid)) {
+          groupedSuppliers[tid] = {
+            ...s,
+            'matched_products': <String>{},
+          };
         }
+        
+        if (s['matched_product'] != null) {
+          (groupedSuppliers[tid]!['matched_products'] as Set<String>).add(s['matched_product'] as String);
+        }
+      }
+    }
+
+    final finalSuppliers = groupedSuppliers.values.map((s) => {
+      ...s,
+      'matched_products': (s['matched_products'] as Set<String>).toList(),
+    }).toList();
+    
+    // Extract unique cities from grouped results
+    final cities = <String>{};
+    for (var s in finalSuppliers) {
+      final il = (s['il'] as String?)?.trim().toUpperCase();
+      if (il != null && il.isNotEmpty) {
+        cities.add(il);
       }
     }
 
     if (mounted) {
       setState(() {
-        _suppliers = results ?? [];
+        _suppliers = finalSuppliers;
         _availableCities = cities.toList()..sort();
         _selectedCity = 'Tümü'; // Reset filter on new search
         _isLoading = false;
@@ -253,15 +276,14 @@ class _SupplierSearchScreenState extends State<SupplierSearchScreen> {
                                               .toList() ??
                                           [],
                                   title: supplier['firma_adi'] ?? 'Firma',
-                                  initials: (supplier['firma_adi'] as String?)
-                                          ?.substring(0, 2)
-                                          .toUpperCase() ??
-                                      '?',
+                                  initials: (supplier['firma_adi'] as String?) != null
+                                      ? (supplier['firma_adi'] as String).substring(0, (supplier['firma_adi'] as String).length >= 2 ? 2 : 1).toUpperCase()
+                                      : '?',
                                   rating: '0.0',
                                   reviewCount: '0',
                                   location:
                                       (supplier['il'] as String?)?.toUpperCase() ?? '',
-                                  description: supplier['web'] ?? '',
+                                  description: supplier['adres'] ?? '',
                                   webUrl: supplier['web'],
                                 ),
                               );
