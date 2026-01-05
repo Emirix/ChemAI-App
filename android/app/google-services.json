@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "760766658712",
+    "project_id": "chemai-79081",
+    "storage_bucket": "chemai-79081.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:760766658712:android:8c30cf5167f62a648bb8ed",
+        "android_client_info": {
+          "package_name": "com.example.chem_ai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCotMuxJxwIztk7Lp3nvqHihkkbn8yzX7o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

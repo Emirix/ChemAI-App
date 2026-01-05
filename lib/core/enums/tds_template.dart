@@ -1,0 +1,1 @@
+enum TdsTemplate { standard, professional }

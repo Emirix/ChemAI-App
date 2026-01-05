@@ -1,0 +1,20 @@
+{
+    "tech_stack": {
+        "frontend": "Flutter",
+        "backend": "Node.js (Express)",
+        "database": "Supabase",
+        "ai": "Google Gemini"
+    },
+    "features": [
+        "SDS (Safety Data Sheet) generation and analysis",
+        "TDS (Technical Data Sheet) generation and analysis",
+        "AI Audit (AI Denetçi) for chemical safety compliance",
+        "Multi-language support (Turkish, Arabic, Farsi, English)",
+        "PDF generation for SDS/TDS",
+        "Zikir counter functionality"
+    ],
+    "main_entry_points": {
+        "frontend": "lib/main.dart",
+        "backend": "backend/server.js"
+    }
+}

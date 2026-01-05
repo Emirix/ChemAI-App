@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ChemAI AI Chat List Screen</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#359EFF",
+                        "primary-dark": "#1d8cf8",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c262f",
+                        "text-main-light": "#111518",
+                        "text-main-dark": "#e0e6ed",
+                        "text-secondary-light": "#637788",
+                        "text-secondary-dark": "#9ca3af"
+                    },
+                    fontFamily: {
+                        display: "Space Grotesk",
+                        body: ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display antialiased h-screen flex flex-col overflow-hidden">
+    <header
+        class="flex-none bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-4 py-3 border-b border-gray-100 dark:border-gray-800 z-20">
+        <div class="flex items-center gap-3">
+            <button
+                class="p-2 -ml-2 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span class="material-symbols-outlined">arrow_back</span>
+            </button>
+            <div class="flex-1">
+                <h2 class="text-xl font-bold tracking-tight text-text-main-light dark:text-text-main-dark leading-none">
+                    AI Chat</h2>
+                <p class="text-xs font-medium text-text-secondary-light dark:text-text-secondary-dark mt-0.5">Your past
+                    conversations</p>
+            </div>
+            <div class="flex items-center gap-2">
+                <button
+                    class="relative w-9 h-9 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700">
+                    <div class="w-full h-full bg-cover bg-center"
+                        style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgYHWdYluBoVVDFIMbUHrylVBnvLffBP6IMcr_2RXjhf_X1_zTlz-M438lztIYGsdcobwAwa-QfyjsPEMasfCd7qpHgq2xmv4w6pbTxZ5w3qQubJ1Yxib-9ah6FQTSw8OuUCLj_k04_Y2ssR5l70AEk1K0PlZ_HCnEcXuXNeVXrx-kUYYe4c0W21_NnexzlLt30giShUGXSryamTBaIlhsk3P-yYfvGY9CiXRdn8IghP9u3Tn50WwkIjLseex52kTCwObizpqnLrrs');">
+                    </div>
+                </button>
+            </div>
+        </div>
+    </header>
+    <main class="flex-1 overflow-y-auto no-scrollbar flex flex-col gap-6">
+        <div
+            class="relative overflow-hidden bg-gradient-to-br from-primary to-blue-600 shadow-lg text-white pt-10 pb-6 px-4">
+            <div class="absolute inset-0 z-0 opacity-20">
+                <svg class="h-full w-full" fill="currentColor" viewBox="0 0 100 100">
+                    <defs>
+                        <pattern height="10" id="pattern-robot" patternUnits="userSpaceOnUse" width="10">
+                            <circle cx="5" cy="5" fill="rgba(255,255,255,0.1)" r="1"></circle>
+                        </pattern>
+                    </defs>
+                    <rect fill="url(#pattern-robot)" height="100" width="100"></rect>
+                </svg>
+            </div>
+            <div class="absolute right-0 top-0 h-full w-1/2 flex items-center justify-end z-10">
+                <span
+                    class="material-symbols-outlined text-[150px] text-white/40 rotate-[15deg] translate-x-1/4 -translate-y-1/4 select-none pointer-events-none icon-filled">
+                    smart_toy
+                </span>
+            </div>
+            <div class="relative z-10 flex flex-col items-start gap-3">
+                <div class="flex items-center gap-2 mb-1">
+                    <div class="p-1.5 bg-white/20 backdrop-blur-sm rounded-lg">
+                        <span class="material-symbols-outlined text-white text-xl">science</span>
+                    </div>
+                    <span
+                        class="text-xs font-bold uppercase tracking-wider bg-white/20 px-2 py-0.5 rounded text-white">Pro
+                        Feature</span>
+                </div>
+                <h3 class="text-3xl font-bold font-display leading-tight">Expert Chemistry<br />Assistant</h3>
+                <p class="text-white/90 text-sm font-body max-w-[80%] mb-2">Ask complex questions about reactions,
+                    stoichiometry, and lab safety protocols.</p>
+            </div>
+        </div>
+        <div class="px-4 flex flex-col gap-4">
+            <h4
+                class="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider px-1">
+                Recent</h4>
+            <div
+                class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4 items-start group">
+                <div
+                    class="w-10 h-10 rounded-full bg-blue-50 dark:bg-blue-900/20 flex items-center justify-center flex-shrink-0 text-primary">
+                    <span class="material-symbols-outlined icon-filled">science</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h5
+                            class="font-bold text-text-main-light dark:text-text-main-dark truncate pr-2 group-hover:text-primary transition-colors">
+                            Acetone &amp; Peroxide Safety</h5>
+                        <span
+                            class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap mt-1">9:42
+                            AM</span>
+                    </div>
+                    <p
+                        class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-2 font-body leading-relaxed">
+                        Is it safe to mix Acetone and Hydrogen Peroxide? I need to clean some glassware that has organic
+                        residues...
+                    </p>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4 items-start group">
+                <div
+                    class="w-10 h-10 rounded-full bg-purple-50 dark:bg-purple-900/20 flex items-center justify-center flex-shrink-0 text-purple-500">
+                    <span class="material-symbols-outlined">biotech</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h5
+                            class="font-bold text-text-main-light dark:text-text-main-dark truncate pr-2 group-hover:text-primary transition-colors">
+                            PCR Protocol Optimization</h5>
+                        <span
+                            class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap mt-1">Yesterday</span>
+                    </div>
+                    <p
+                        class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-2 font-body leading-relaxed">
+                        Can you help me troubleshoot my PCR results? The bands are faint and I suspect the annealing
+                        temperature...
+                    </p>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4 items-start group">
+                <div
+                    class="w-10 h-10 rounded-full bg-green-50 dark:bg-green-900/20 flex items-center justify-center flex-shrink-0 text-green-500">
+                    <span class="material-symbols-outlined">eco</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h5
+                            class="font-bold text-text-main-light dark:text-text-main-dark truncate pr-2 group-hover:text-primary transition-colors">
+                            Green Chemistry Solvents</h5>
+                        <span
+                            class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap mt-1">Oct
+                            24</span>
+                    </div>
+                    <p
+                        class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-2 font-body leading-relaxed">
+                        I'm looking for a greener alternative to Dichloromethane for extraction processes. What do you
+                        recommend...
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="px-4 flex flex-col gap-4">
+            <h4
+                class="text-sm font-bold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider px-1">
+                Previous 30 Days</h4>
+            <div
+                class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4 items-start group">
+                <div
+                    class="w-10 h-10 rounded-full bg-orange-50 dark:bg-orange-900/20 flex items-center justify-center flex-shrink-0 text-orange-500">
+                    <span class="material-symbols-outlined">warning</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h5
+                            class="font-bold text-text-main-light dark:text-text-main-dark truncate pr-2 group-hover:text-primary transition-colors">
+                            Lab Safety Audit Checklist</h5>
+                        <span
+                            class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap mt-1">Oct
+                            12</span>
+                    </div>
+                    <p
+                        class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-2 font-body leading-relaxed">
+                        Generate a checklist for the quarterly chemical storage safety audit focusing on flammables and
+                        corrosives...
+                    </p>
+                </div>
+            </div>
+            <div
+                class="bg-white dark:bg-surface-dark p-4 rounded-xl border border-gray-100 dark:border-gray-800 shadow-sm hover:shadow-md transition-shadow cursor-pointer flex gap-4 items-start group">
+                <div
+                    class="w-10 h-10 rounded-full bg-teal-50 dark:bg-teal-900/20 flex items-center justify-center flex-shrink-0 text-teal-500">
+                    <span class="material-symbols-outlined">science</span>
+                </div>
+                <div class="flex-1 min-w-0">
+                    <div class="flex justify-between items-start mb-1">
+                        <h5
+                            class="font-bold text-text-main-light dark:text-text-main-dark truncate pr-2 group-hover:text-primary transition-colors">
+                            Molarity Calculations</h5>
+                        <span
+                            class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark whitespace-nowrap mt-1">Oct
+                            05</span>
+                    </div>
+                    <p
+                        class="text-sm text-text-secondary-light dark:text-text-secondary-dark line-clamp-2 font-body leading-relaxed">
+                        Check my calculation for preparing 500mL of 0.5M H2SO4 from a 98% stock solution...
+                    </p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <button
+        class="fixed bottom-[calc(56px+1.5rem)] right-4 w-14 h-14 bg-primary hover:bg-primary-dark text-white rounded-full shadow-lg shadow-primary/30 transition-all active:scale-[0.95] flex items-center justify-center gap-2 font-semibold z-40">
+        <span class="material-symbols-outlined text-3xl">add_comment</span>
+    </button>
+    <nav
+        class="fixed bottom-0 left-0 right-0 bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 px-6 py-2 z-50 pb-safe">
+        <div class="flex items-center justify-between">
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </button>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">history</span>
+                <span class="text-[10px] font-medium">History</span>
+            </button>
+            <div class="relative -top-6">
+                <button
+                    class="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/30 ring-4 ring-white dark:ring-background-dark hover:bg-primary/90 transition-transform active:scale-95">
+                    <span class="material-symbols-outlined icon-filled text-3xl">smart_toy</span>
+                </button>
+                <div class="absolute -bottom-5 w-full text-center">
+                    <span class="text-[10px] font-bold text-primary dark:text-primary">AI Chat</span>
+                </div>
+            </div>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">lab_profile</span>
+                <span class="text-[10px] font-medium">Notes</span>
+            </button>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">settings</span>
+                <span class="text-[10px] font-medium">Settings</span>
+            </button>
+        </div>
+    </nav>
+</body>
+
+</html>

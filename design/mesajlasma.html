@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ChemAI AI Chat Screen</title>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#359EFF",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1c262f",
+                        "text-main-light": "#111518",
+                        "text-main-dark": "#e0e6ed",
+                        "text-secondary-light": "#637788",
+                        "text-secondary-dark": "#9ca3af"
+                    },
+                    fontFamily: {
+                        display: "Space Grotesk",
+                        body: ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        DEFAULT: "0.25rem",
+                        lg: "0.5rem",
+                        xl: "0.75rem",
+                        full: "9999px"
+                    }
+                }
+            }
+        };
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .icon-filled {
+            font-variation-settings: 'FILL' 1, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-text-main-light dark:text-text-main-dark font-display antialiased h-screen flex flex-col overflow-hidden">
+    <header
+        class="flex-none bg-white/80 dark:bg-surface-dark/80 backdrop-blur-md px-4 py-3 flex items-center justify-between border-b border-gray-100 dark:border-gray-800 z-20">
+        <div class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-9 h-9 rounded-xl bg-primary/10 text-primary">
+                <span class="material-symbols-outlined text-xl icon-filled">smart_toy</span>
+            </div>
+            <div>
+                <h2 class="text-lg font-bold tracking-tight text-text-main-light dark:text-text-main-dark leading-none">
+                    AI Assistant</h2>
+                <div class="flex items-center gap-1.5 mt-1">
+                    <span class="relative flex h-2 w-2">
+                        <span
+                            class="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                        <span class="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                    </span>
+                    <span
+                        class="text-[10px] font-semibold text-text-secondary-light dark:text-text-secondary-dark uppercase tracking-wider">Online</span>
+                </div>
+            </div>
+        </div>
+        <div class="flex items-center gap-2">
+            <button
+                class="p-2 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors rounded-full hover:bg-gray-100 dark:hover:bg-gray-800">
+                <span class="material-symbols-outlined">delete_history</span>
+            </button>
+            <button class="relative w-9 h-9 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700">
+                <div class="w-full h-full bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgYHWdYluBoVVDFIMbUHrylVBnvLffBP6IMcr_2RXjhf_X1_zTlz-M438lztIYGsdcobwAwa-QfyjsPEMasfCd7qpHgq2xmv4w6pbTxZ5w3qQubJ1Yxib-9ah6FQTSw8OuUCLj_k04_Y2ssR5l70AEk1K0PlZ_HCnEcXuXNeVXrx-kUYYe4c0W21_NnexzlLt30giShUGXSryamTBaIlhsk3P-yYfvGY9CiXRdn8IghP9u3Tn50WwkIjLseex52kTCwObizpqnLrrs');">
+                </div>
+            </button>
+        </div>
+    </header>
+    <main class="flex-1 overflow-y-auto p-4 pb-44 no-scrollbar flex flex-col gap-6" id="chat-feed">
+        <div class="flex justify-center my-2">
+            <span
+                class="text-[10px] font-semibold tracking-wide text-text-secondary-light dark:text-text-secondary-dark bg-gray-100 dark:bg-gray-800/50 px-3 py-1 rounded-full uppercase">Today,
+                9:41 AM</span>
+        </div>
+        <div class="flex gap-3 max-w-[90%] md:max-w-[80%] group">
+            <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex-shrink-0 flex items-center justify-center text-white mt-1 shadow-md">
+                <span class="material-symbols-outlined text-sm">smart_toy</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <div
+                    class="p-3.5 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-2xl rounded-tl-none shadow-sm text-sm font-body leading-relaxed text-text-main-light dark:text-text-main-dark">
+                    <p>Good morning, Dr. Smith. I'm ready to assist with your research. You can ask me about reaction
+                        conditions, safety data, or experimental protocols.</p>
+                </div>
+            </div>
+        </div>
+        <div class="flex gap-3 max-w-[90%] md:max-w-[80%] ml-auto flex-row-reverse group">
+            <div
+                class="w-8 h-8 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700 flex-shrink-0 mt-1 shadow-sm">
+                <div class="w-full h-full bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgYHWdYluBoVVDFIMbUHrylVBnvLffBP6IMcr_2RXjhf_X1_zTlz-M438lztIYGsdcobwAwa-QfyjsPEMasfCd7qpHgq2xmv4w6pbTxZ5w3qQubJ1Yxib-9ah6FQTSw8OuUCLj_k04_Y2ssR5l70AEk1K0PlZ_HCnEcXuXNeVXrx-kUYYe4c0W21_NnexzlLt30giShUGXSryamTBaIlhsk3P-yYfvGY9CiXRdn8IghP9u3Tn50WwkIjLseex52kTCwObizpqnLrrs');">
+                </div>
+            </div>
+            <div class="flex flex-col gap-1 items-end">
+                <div
+                    class="p-3.5 bg-primary text-white rounded-2xl rounded-tr-none shadow-md text-sm font-body leading-relaxed">
+                    <p>I need to clean some glassware that has organic residues. Is it safe to mix Acetone and Hydrogen
+                        Peroxide?</p>
+                </div>
+                <span
+                    class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark pr-1 opacity-0 group-hover:opacity-100 transition-opacity">09:42
+                    AM</span>
+            </div>
+        </div>
+        <div class="flex gap-3 max-w-[90%] md:max-w-[80%] group">
+            <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex-shrink-0 flex items-center justify-center text-white mt-1 shadow-md">
+                <span class="material-symbols-outlined text-sm">smart_toy</span>
+            </div>
+            <div class="flex flex-col gap-1">
+                <div
+                    class="p-3.5 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-2xl rounded-tl-none shadow-sm text-sm font-body leading-relaxed text-text-main-light dark:text-text-main-dark">
+                    <div class="flex items-center gap-2 mb-2.5 pb-2.5 border-b border-gray-100 dark:border-gray-800">
+                        <div
+                            class="p-1 bg-orange-50 dark:bg-orange-900/20 rounded text-orange-600 dark:text-orange-400">
+                            <span class="material-symbols-outlined icon-filled text-lg">warning</span>
+                        </div>
+                        <span class="font-bold text-orange-600 dark:text-orange-400">Safety Hazard Alert</span>
+                    </div>
+                    <p class="mb-2"><strong>NO. Do not mix Acetone and Hydrogen Peroxide.</strong></p>
+                    <p class="text-text-secondary-light dark:text-text-secondary-dark">Mixing these chemicals produces
+                        <strong>Acetone Peroxide (TATP)</strong>, a highly unstable organic peroxide explosive. It is
+                        extremely sensitive to shock, friction, and heat.</p>
+                </div>
+                <div class="flex flex-wrap gap-2 mt-1 ml-1">
+                    <button
+                        class="px-3 py-1.5 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors flex items-center gap-1.5 shadow-sm">
+                        <span class="material-symbols-outlined text-sm">description</span>
+                        View Acetone MSDS
+                    </button>
+                    <button
+                        class="px-3 py-1.5 bg-white dark:bg-surface-dark border border-gray-200 dark:border-gray-700 rounded-lg text-xs font-semibold text-text-secondary-light dark:text-text-secondary-dark hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors shadow-sm">
+                        Safe Alternatives
+                    </button>
+                </div>
+                <span
+                    class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark pl-1 mt-1 opacity-0 group-hover:opacity-100 transition-opacity">09:42
+                    AM</span>
+            </div>
+        </div>
+        <div class="flex gap-3 max-w-[90%] md:max-w-[80%] ml-auto flex-row-reverse group">
+            <div
+                class="w-8 h-8 rounded-full overflow-hidden border border-gray-200 dark:border-gray-700 flex-shrink-0 mt-1 shadow-sm">
+                <div class="w-full h-full bg-cover bg-center"
+                    style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBgYHWdYluBoVVDFIMbUHrylVBnvLffBP6IMcr_2RXjhf_X1_zTlz-M438lztIYGsdcobwAwa-QfyjsPEMasfCd7qpHgq2xmv4w6pbTxZ5w3qQubJ1Yxib-9ah6FQTSw8OuUCLj_k04_Y2ssR5l70AEk1K0PlZ_HCnEcXuXNeVXrx-kUYYe4c0W21_NnexzlLt30giShUGXSryamTBaIlhsk3P-yYfvGY9CiXRdn8IghP9u3Tn50WwkIjLseex52kTCwObizpqnLrrs');">
+                </div>
+            </div>
+            <div class="flex flex-col gap-1 items-end">
+                <div
+                    class="p-3.5 bg-primary text-white rounded-2xl rounded-tr-none shadow-md text-sm font-body leading-relaxed">
+                    <p>Understood! Thanks for the warning. What should I use instead?</p>
+                </div>
+                <span
+                    class="text-[10px] text-text-secondary-light dark:text-text-secondary-dark pr-1 opacity-0 group-hover:opacity-100 transition-opacity">09:44
+                    AM</span>
+            </div>
+        </div>
+        <div class="flex gap-3 max-w-[90%] md:max-w-[80%]">
+            <div
+                class="w-8 h-8 rounded-full bg-gradient-to-br from-primary to-blue-600 flex-shrink-0 flex items-center justify-center text-white mt-1 shadow-md">
+                <span class="material-symbols-outlined text-sm">smart_toy</span>
+            </div>
+            <div
+                class="p-4 bg-white dark:bg-surface-dark border border-gray-100 dark:border-gray-800 rounded-2xl rounded-tl-none shadow-sm flex items-center gap-1 h-12 w-20">
+                <div class="w-1.5 h-1.5 bg-primary/60 rounded-full animate-bounce"></div>
+                <div class="w-1.5 h-1.5 bg-primary/60 rounded-full animate-bounce delay-75"></div>
+                <div class="w-1.5 h-1.5 bg-primary/60 rounded-full animate-bounce delay-150"></div>
+            </div>
+        </div>
+    </main>
+    <div
+        class="fixed bottom-[84px] left-0 right-0 px-4 pb-3 pt-3 bg-white/95 dark:bg-background-dark/95 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800 z-30">
+        <div class="flex items-end gap-2 max-w-full">
+            <button
+                class="mb-1 p-2 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors flex-shrink-0 bg-gray-50 dark:bg-surface-dark rounded-full">
+                <span class="material-symbols-outlined">add</span>
+            </button>
+            <div
+                class="flex-1 bg-gray-100 dark:bg-surface-dark rounded-[1.25rem] flex items-center pl-4 pr-2 py-1.5 border border-transparent focus-within:border-primary/30 focus-within:bg-white dark:focus-within:bg-surface-dark transition-all shadow-sm">
+                <input
+                    class="flex-1 bg-transparent border-none text-sm text-text-main-light dark:text-text-main-dark placeholder-text-secondary-light focus:ring-0 p-0 font-body leading-relaxed h-9"
+                    placeholder="Ask about chemistry..." type="text" />
+                <div class="flex items-center gap-1 border-l border-gray-200 dark:border-gray-700 pl-1 ml-2">
+                    <button
+                        class="p-1.5 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors rounded-full">
+                        <span class="material-symbols-outlined text-[20px]">mic</span>
+                    </button>
+                    <button
+                        class="p-1.5 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors rounded-full">
+                        <span class="material-symbols-outlined text-[20px]">qr_code_scanner</span>
+                    </button>
+                </div>
+            </div>
+            <button
+                class="mb-1 p-3 bg-primary text-white rounded-full shadow-lg shadow-primary/20 hover:bg-primary/90 transition-transform active:scale-95 flex-shrink-0 flex items-center justify-center">
+                <span class="material-symbols-outlined icon-filled text-[20px]">send</span>
+            </button>
+        </div>
+    </div>
+    <nav
+        class="fixed bottom-0 left-0 right-0 bg-white dark:bg-surface-dark border-t border-gray-100 dark:border-gray-800 px-6 py-2 z-50 pb-safe">
+        <div class="flex items-center justify-between">
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </button>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">history</span>
+                <span class="text-[10px] font-medium">History</span>
+            </button>
+            <div class="relative -top-6">
+                <button
+                    class="flex items-center justify-center w-14 h-14 bg-primary text-white rounded-full shadow-lg shadow-primary/30 ring-4 ring-white dark:ring-background-dark hover:bg-primary/90 transition-transform active:scale-95">
+                    <span class="material-symbols-outlined icon-filled text-3xl">smart_toy</span>
+                </button>
+                <div class="absolute -bottom-5 w-full text-center">
+                    <span class="text-[10px] font-bold text-primary dark:text-primary">AI Chat</span>
+                </div>
+            </div>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">lab_profile</span>
+                <span class="text-[10px] font-medium">Notes</span>
+            </button>
+            <button
+                class="flex flex-col items-center gap-1 pt-2 pb-1 text-text-secondary-light dark:text-text-secondary-dark hover:text-primary transition-colors w-12">
+                <span class="material-symbols-outlined text-2xl">settings</span>
+                <span class="text-[10px] font-medium">Settings</span>
+            </button>
+        </div>
+    </nav>
+
+</body>
+
+</html>

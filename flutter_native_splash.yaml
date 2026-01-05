@@ -1,0 +1,20 @@
+flutter_native_splash:
+  color: "#359EFF"
+  image: logo_splash.png
+  color_dark: "#0F1923"
+  image_dark: logo_splash.png
+
+  android: true
+  ios: true
+  web: false
+  
+  # Kırpılmayı önlemek için görseli ortalar
+  android_gravity: center
+  ios_content_mode: center
+  fullscreen: false
+
+  android_12:
+    image: logo_splash.png
+    color: "#359EFF"
+    image_dark: logo_splash.png
+    color_dark: "#0F1923"

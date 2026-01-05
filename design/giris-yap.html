@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>ChemAI Login</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1f89e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111a21",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body>
+    <div
+        class="relative flex h-auto min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden font-display">
+        <!-- Header Image Section -->
+        <div class="@container">
+            <div class="@[480px]:px-4 @[480px]:py-3 pt-0">
+                <div class="w-full bg-center bg-no-repeat bg-cover flex flex-col justify-end overflow-hidden bg-white dark:bg-gray-800 @[480px]:rounded-lg min-h-[260px] relative"
+                    data-alt="Abstract blue gradient with floating molecular structures and laboratory glassware"
+                    style='background-image: url("https://lh3.googleusercontent.com/aida-public/AB6AXuDM6rj8nKC8twStD8AImFi2Neft0r6m_YHxkM4uUb2UHVmhxX-kc6fOmh7mt9m-RYYCLESaXZhFzdNGUyZY2j5GDh-0Tjm1_pVfQtjg2aZ01_REZ6k6Rg9Sr5DU48haKDw20Oq2jupGm6kQw5vqvQW37Usl0ToTxQVTZHPa20kXh0p3zbel3l3wSTEOL9Ho0dAMx32larXtuG_yEJt5qFXQHsYoBtCCSAlOYyTQ_lfdnqReaZVHHb5drpf-o7b39YKIveEyHxnKc1Wi");'>
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-background-light dark:from-background-dark to-transparent opacity-90">
+                    </div>
+                    <div class="absolute inset-0 bg-primary/10"></div>
+                </div>
+            </div>
+        </div>
+        <!-- Headline Section -->
+        <div class="px-4 pb-3 pt-5 flex flex-col items-center text-center">
+            <div class="flex items-center justify-center w-12 h-12 rounded-xl bg-primary/10 mb-4 text-primary">
+                <span class="material-symbols-outlined" style="font-size: 28px;">science</span>
+            </div>
+            <h1 class="text-[#111518] dark:text-white tracking-tight text-[32px] font-bold leading-tight">ChemAI</h1>
+            <h2 class="text-[#637788] dark:text-gray-400 tracking-light text-lg font-medium leading-tight pt-2">Welcome
+                back, Scientist.</h2>
+        </div>
+        <!-- Form Section -->
+        <div class="flex flex-col w-full max-w-[480px] mx-auto">
+            <!-- Email Field -->
+            <div class="flex w-full flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                    <p class="text-[#111518] dark:text-white text-base font-medium leading-normal pb-2">Email Address
+                    </p>
+                    <div
+                        class="flex w-full flex-1 items-stretch rounded-lg bg-white dark:bg-[#1a2632] border border-[#dce1e5] dark:border-gray-700 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary">
+                        <div class="text-[#637788] dark:text-gray-400 flex items-center justify-center pl-[15px]">
+                            <span class="material-symbols-outlined">mail</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg rounded-l-none border-none bg-transparent h-14 placeholder:text-[#637788] dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-[#111518] dark:text-white focus:outline-0 focus:ring-0"
+                            placeholder="name@lab.com" value="" />
+                    </div>
+                </label>
+            </div>
+            <!-- Password Field -->
+            <div class="flex w-full flex-wrap items-end gap-4 px-4 py-3">
+                <label class="flex flex-col min-w-40 flex-1">
+                    <p class="text-[#111518] dark:text-white text-base font-medium leading-normal pb-2">Password</p>
+                    <div
+                        class="flex w-full flex-1 items-stretch rounded-lg bg-white dark:bg-[#1a2632] border border-[#dce1e5] dark:border-gray-700 focus-within:border-primary focus-within:ring-1 focus-within:ring-primary">
+                        <div class="text-[#637788] dark:text-gray-400 flex items-center justify-center pl-[15px]">
+                            <span class="material-symbols-outlined">lock</span>
+                        </div>
+                        <input
+                            class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border-none bg-transparent h-14 placeholder:text-[#637788] dark:placeholder:text-gray-500 p-[15px] text-base font-normal leading-normal text-[#111518] dark:text-white focus:outline-0 focus:ring-0"
+                            placeholder="••••••••••" type="password" value="" />
+                        <div
+                            class="text-[#637788] dark:text-gray-400 flex items-center justify-center pr-[15px] cursor-pointer hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined">visibility</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <!-- Forgot Password -->
+            <div class="flex px-4 py-1 justify-end">
+                <button
+                    class="flex min-w-[84px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-10 bg-transparent text-primary text-sm font-bold leading-normal tracking-[0.015em] hover:bg-primary/10 transition-colors px-2">
+                    <span class="truncate">Forgot Password?</span>
+                </button>
+            </div>
+            <!-- Login Button -->
+            <div class="flex px-4 py-4 justify-center">
+                <button
+                    class="flex w-full cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-4 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] shadow-lg shadow-primary/20 hover:bg-blue-600 transition-all active:scale-[0.98]">
+                    <span class="truncate">Log In</span>
+                </button>
+            </div>
+            <!-- Biometric Login Option (Modern Touch) -->
+            <div class="flex justify-center items-center py-2">
+                <button aria-label="Login with Face ID"
+                    class="p-3 rounded-full text-[#637788] dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                    <span class="material-symbols-outlined" style="font-size: 32px;">face</span>
+                </button>
+            </div>
+        </div>
+        <div class="flex-1"></div>
+        <!-- Footer / Register -->
+        <div class="h-5 bg-transparent"></div>
+        <div class="flex flex-col items-center justify-center pb-8 pt-4">
+            <p class="text-[#637788] dark:text-gray-400 text-sm font-medium">
+                New to ChemAI?
+                <a class="text-primary font-bold hover:underline ml-1" href="#">Create an Account</a>
+            </p>
+        </div>
+    </div>
+</body>
+
+</html>

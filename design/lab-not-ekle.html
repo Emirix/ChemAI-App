@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Add New Lab Note - ChemAI</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#1f89e5",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#111a21",
+                        "surface-light": "#ffffff",
+                        "surface-dark": "#1a2632",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar for cleanliness */
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: transparent;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #cbd5e1;
+            border-radius: 20px;
+        }
+
+        .dark ::-webkit-scrollbar-thumb {
+            background-color: #334155;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display text-slate-900 dark:text-white antialiased transition-colors duration-200">
+    <div
+        class="relative flex h-full min-h-screen w-full flex-col max-w-md mx-auto bg-surface-light dark:bg-background-dark shadow-2xl overflow-hidden">
+        <!-- Header -->
+        <header
+            class="flex items-center bg-surface-light dark:bg-background-dark p-4 pb-2 justify-between sticky top-0 z-20 border-b border-gray-100 dark:border-gray-800/50">
+            <button
+                class="text-slate-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+            </button>
+            <h2
+                class="text-slate-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">
+                Add New Lab Note</h2>
+        </header>
+        <!-- Main Content Scroll Area -->
+        <main class="flex-1 overflow-y-auto pb-24">
+            <!-- Experiment Selection -->
+            <div class="px-4 pt-6 pb-2">
+                <label class="flex flex-col w-full">
+                    <p class="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2">Related
+                        Experiment</p>
+                    <div class="relative">
+                        <select
+                            class="w-full appearance-none rounded-xl bg-[#f0f2f4] dark:bg-surface-dark border-0 text-slate-900 dark:text-white p-4 pr-10 text-base font-normal leading-normal focus:ring-2 focus:ring-primary focus:outline-none transition-shadow">
+                            <option disabled="" value="">Select an experiment</option>
+                            <option selected="" value="exp204">Exp-204: Polymer Synthesis</option>
+                            <option value="exp205">Exp-205: Acid Titration</option>
+                            <option value="exp206">Exp-206: Organic Compound Analysis</option>
+                        </select>
+                        <div
+                            class="pointer-events-none absolute inset-y-0 right-0 flex items-center px-4 text-slate-500">
+                            <span class="material-symbols-outlined">expand_more</span>
+                        </div>
+                    </div>
+                </label>
+            </div>
+            <!-- Classification Tags -->
+            <div class="px-4 py-4">
+                <p class="text-slate-900 dark:text-white text-base font-medium leading-normal pb-3">Classification</p>
+                <div class="flex flex-wrap gap-2.5">
+                    <!-- Successful Insight -->
+                    <label class="cursor-pointer group">
+                        <input class="peer sr-only" name="status" type="radio" value="success" />
+                        <div
+                            class="flex items-center gap-2 px-3.5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 peer-checked:bg-green-50 peer-checked:border-green-200 peer-checked:text-green-700 dark:peer-checked:bg-green-900/20 dark:peer-checked:border-green-800 dark:peer-checked:text-green-400 transition-all">
+                            <span class="material-symbols-outlined text-[18px] peer-checked:fill-1">check_circle</span>
+                            <span class="text-sm font-medium">Insight</span>
+                        </div>
+                    </label>
+                    <!-- Unexpected Reaction -->
+                    <label class="cursor-pointer group">
+                        <input class="peer sr-only" name="status" type="radio" value="warning" />
+                        <div
+                            class="flex items-center gap-2 px-3.5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 peer-checked:bg-yellow-50 peer-checked:border-yellow-200 peer-checked:text-yellow-700 dark:peer-checked:bg-yellow-900/20 dark:peer-checked:border-yellow-800 dark:peer-checked:text-yellow-400 transition-all">
+                            <span class="material-symbols-outlined text-[18px] peer-checked:fill-1">science</span>
+                            <span class="text-sm font-medium">Reaction</span>
+                        </div>
+                    </label>
+                    <!-- Issue -->
+                    <label class="cursor-pointer group">
+                        <input class="peer sr-only" name="status" type="radio" value="error" />
+                        <div
+                            class="flex items-center gap-2 px-3.5 py-2 rounded-full border border-gray-200 dark:border-gray-700 bg-white dark:bg-surface-dark text-slate-600 dark:text-slate-300 peer-checked:bg-red-50 peer-checked:border-red-200 peer-checked:text-red-700 dark:peer-checked:bg-red-900/20 dark:peer-checked:border-red-800 dark:peer-checked:text-red-400 transition-all">
+                            <span class="material-symbols-outlined text-[18px] peer-checked:fill-1">warning</span>
+                            <span class="text-sm font-medium">Issue</span>
+                        </div>
+                    </label>
+                </div>
+            </div>
+            <!-- Observations Text Area -->
+            <div class="px-4 py-2">
+                <label class="flex flex-col w-full">
+                    <p class="text-slate-900 dark:text-white text-base font-medium leading-normal pb-2">Observations</p>
+                    <textarea
+                        class="w-full min-h-[180px] resize-none rounded-xl bg-[#f0f2f4] dark:bg-surface-dark border-0 text-slate-900 dark:text-white p-4 text-base font-normal leading-normal placeholder:text-slate-400 focus:ring-2 focus:ring-primary focus:outline-none transition-shadow"
+                        placeholder="Type your observations, results, or insights here..."></textarea>
+                </label>
+            </div>
+            <!-- Attachments Section -->
+            <div class="px-4 py-4">
+                <p class="text-slate-900 dark:text-white text-base font-medium leading-normal pb-3">Quick Attachments
+                </p>
+                <div class="flex gap-4">
+                    <!-- Photo Button -->
+                    <button class="flex flex-col items-center gap-2 group">
+                        <div
+                            class="flex items-center justify-center w-14 h-14 rounded-xl bg-[#f0f2f4] dark:bg-surface-dark text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-[24px]">photo_camera</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Photo</span>
+                    </button>
+                    <!-- Voice Button -->
+                    <button class="flex flex-col items-center gap-2 group">
+                        <div
+                            class="flex items-center justify-center w-14 h-14 rounded-xl bg-[#f0f2f4] dark:bg-surface-dark text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors relative overflow-hidden">
+                            <span class="material-symbols-outlined text-[24px] z-10">mic</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-600 dark:text-slate-400">Voice</span>
+                    </button>
+                    <!-- File Button -->
+                    <button class="flex flex-col items-center gap-2 group">
+                        <div
+                            class="flex items-center justify-center w-14 h-14 rounded-xl bg-[#f0f2f4] dark:bg-surface-dark text-slate-700 dark:text-slate-300 group-hover:bg-primary/10 group-hover:text-primary transition-colors">
+                            <span class="material-symbols-outlined text-[24px]">attach_file</span>
+                        </div>
+                        <span class="text-xs font-medium text-slate-600 dark:text-slate-400">File</span>
+                    </button>
+                </div>
+            </div>
+            <!-- Preview of Attached Image (Example State) -->
+            <div class="px-4 py-2">
+                <div
+                    class="relative w-24 h-24 rounded-lg overflow-hidden border border-gray-200 dark:border-gray-700 group">
+                    <img alt="Glass flask with blue chemical liquid in a laboratory setting"
+                        class="w-full h-full object-cover" data-alt="Close up of a test tube with blue liquid"
+                        src="https://lh3.googleusercontent.com/aida-public/AB6AXuCnviH54kv0DthQ_rdXxXIi7JFTLH-Mw9wveDX6xD-yrtUAnQZ6W-4TkH6z9mlsDBu6r7x2q52G121a_XT-OhMdEv1MdZGYtSWDn3e8uGTkzq-prMClBx24dhrm8oHdwhWUqrTwtTxZDhqHCrhbiY2DCdRlgj-lebhgupRXnLFLS-Qm0tQWnqq6gi6bpLvB9r1_lntV_BvyrRG5KIx6-9HfvPGRvdAQAPxCr_bAMBOmr0j_-4lqBSTlVTTLYx45AU7KBF3UWYW0z3v-" />
+                    <div
+                        class="absolute inset-0 bg-black/40 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity cursor-pointer">
+                        <span class="material-symbols-outlined text-white">delete</span>
+                    </div>
+                </div>
+            </div>
+        </main>
+        <!-- Sticky Footer -->
+        <div
+            class="absolute bottom-0 left-0 right-0 p-4 bg-surface-light/95 dark:bg-background-dark/95 backdrop-blur-sm border-t border-gray-100 dark:border-gray-800">
+            <button
+                class="w-full bg-primary hover:bg-blue-600 text-white font-bold text-lg py-3.5 rounded-xl shadow-lg shadow-primary/20 active:scale-[0.98] transition-all flex items-center justify-center gap-2">
+                <span class="material-symbols-outlined">save</span>
+                Save Note
+            </button>
+        </div>
+    </div>
+</body>
+
+</html>

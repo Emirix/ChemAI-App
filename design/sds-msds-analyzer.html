@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>SDS Analyzer</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#429cf0",
+                        "background-light": "#f6f7f8",
+                        "background-dark": "#101922",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2632",
+                        "text-main-light": "#0d151b",
+                        "text-main-dark": "#ffffff",
+                        "text-sec-light": "#4c749a",
+                        "text-sec-dark": "#94a3b8",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark font-display antialiased text-text-main-light dark:text-text-main-dark transition-colors duration-200">
+    <div
+        class="relative flex h-full min-h-screen w-full max-w-md mx-auto flex-col bg-background-light dark:bg-background-dark overflow-x-hidden shadow-2xl">
+        <!-- Header -->
+        <header
+            class="flex items-center bg-background-light dark:bg-background-dark p-4 pb-2 sticky top-0 z-10 backdrop-blur-md bg-opacity-90 dark:bg-opacity-90 border-b border-gray-100 dark:border-gray-800">
+            <button
+                class="text-text-main-light dark:text-text-main-dark flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-[24px]">arrow_back</span>
+            </button>
+            <h2
+                class="text-text-main-light dark:text-text-main-dark text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center">
+                SDS Analyzer</h2>
+            <button
+                class="flex size-10 cursor-pointer items-center justify-center overflow-hidden rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors text-text-main-light dark:text-text-main-dark">
+                <span class="material-symbols-outlined text-[24px]">settings</span>
+            </button>
+        </header>
+        <main class="flex-1 flex flex-col p-4 gap-6">
+            <!-- Upload Section -->
+            <section>
+                <div
+                    class="flex flex-col items-center gap-4 rounded-xl border-2 border-dashed border-primary/40 bg-card-light dark:bg-card-dark p-6 transition-all hover:border-primary/70 relative overflow-hidden group">
+                    <!-- Subtle Gradient Background -->
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/5 to-transparent pointer-events-none">
+                    </div>
+                    <div class="z-10 flex flex-col items-center gap-3">
+                        <div
+                            class="h-12 w-12 rounded-full bg-primary/10 flex items-center justify-center text-primary mb-1">
+                            <span class="material-symbols-outlined text-[28px]">cloud_upload</span>
+                        </div>
+                        <div class="flex flex-col items-center gap-1">
+                            <p class="text-text-main-light dark:text-text-main-dark text-base font-bold text-center">
+                                Methanol_SDS.pdf</p>
+                            <div class="flex items-center gap-2">
+                                <span class="h-2 w-2 rounded-full bg-green-500 animate-pulse"></span>
+                                <p class="text-text-sec-light dark:text-text-sec-dark text-xs font-medium">Analysis
+                                    Complete</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Progress Bar (Simulated) -->
+                    <div class="w-full bg-gray-200 dark:bg-gray-700 rounded-full h-1.5 mt-2 z-10">
+                        <div class="bg-primary h-1.5 rounded-full w-full" style="width: 100%"></div>
+                    </div>
+                </div>
+            </section>
+            <!-- AI Summary Section -->
+            <section>
+                <div class="flex items-center justify-between mb-3 px-1">
+                    <h3
+                        class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[22px]">auto_awesome</span>
+                        AI Summary
+                    </h3>
+                    <span class="text-xs font-medium text-primary bg-primary/10 px-2 py-1 rounded">Confidence:
+                        98%</span>
+                </div>
+                <div class="grid grid-cols-2 gap-3">
+                    <!-- Hazard Card -->
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-card-light dark:bg-card-dark p-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="h-10 w-10 rounded-lg bg-orange-100 dark:bg-orange-900/30 flex items-center justify-center text-orange-600 dark:text-orange-400">
+                            <span class="material-symbols-outlined text-[24px]">warning</span>
+                        </div>
+                        <div>
+                            <h4 class="text-text-main-light dark:text-text-main-dark text-sm font-bold mb-1">Hazards
+                            </h4>
+                            <p class="text-text-sec-light dark:text-text-sec-dark text-xs leading-relaxed line-clamp-3">
+                                Flammable Liquid (Cat 2), Toxic if swallowed, Causes organ damage.</p>
+                        </div>
+                    </div>
+                    <!-- PPE Card -->
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-card-light dark:bg-card-dark p-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="h-10 w-10 rounded-lg bg-blue-100 dark:bg-blue-900/30 flex items-center justify-center text-blue-600 dark:text-blue-400">
+                            <span class="material-symbols-outlined text-[24px]">masks</span>
+                        </div>
+                        <div>
+                            <h4 class="text-text-main-light dark:text-text-main-dark text-sm font-bold mb-1">Required
+                                PPE</h4>
+                            <p class="text-text-sec-light dark:text-text-sec-dark text-xs leading-relaxed line-clamp-3">
+                                Butyl rubber gloves, Safety goggles, Lab coat, Fume hood.</p>
+                        </div>
+                    </div>
+                    <!-- First Aid Card -->
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-card-light dark:bg-card-dark p-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="h-10 w-10 rounded-lg bg-red-100 dark:bg-red-900/30 flex items-center justify-center text-red-600 dark:text-red-400">
+                            <span class="material-symbols-outlined text-[24px]">medical_services</span>
+                        </div>
+                        <div>
+                            <h4 class="text-text-main-light dark:text-text-main-dark text-sm font-bold mb-1">First Aid
+                            </h4>
+                            <p class="text-text-sec-light dark:text-text-sec-dark text-xs leading-relaxed line-clamp-3">
+                                Rinse eyes for 15m. If swallowed, call poison center immediately.</p>
+                        </div>
+                    </div>
+                    <!-- Storage Card -->
+                    <div
+                        class="flex flex-col gap-3 rounded-xl border border-gray-200 dark:border-gray-800 bg-card-light dark:bg-card-dark p-4 shadow-sm hover:shadow-md transition-shadow">
+                        <div
+                            class="h-10 w-10 rounded-lg bg-emerald-100 dark:bg-emerald-900/30 flex items-center justify-center text-emerald-600 dark:text-emerald-400">
+                            <span class="material-symbols-outlined text-[24px]">inventory_2</span>
+                        </div>
+                        <div>
+                            <h4 class="text-text-main-light dark:text-text-main-dark text-sm font-bold mb-1">Storage
+                            </h4>
+                            <p class="text-text-sec-light dark:text-text-sec-dark text-xs leading-relaxed line-clamp-3">
+                                Store in cool, well-ventilated place. Keep container tightly closed.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Chat Assistant Section -->
+            <section class="flex flex-col flex-1 min-h-[300px] mt-2">
+                <div class="flex items-center justify-between mb-3 px-1">
+                    <h3 class="text-text-main-light dark:text-text-main-dark text-xl font-bold leading-tight">MSDS
+                        Assistant</h3>
+                </div>
+                <div
+                    class="flex flex-col flex-1 rounded-xl bg-card-light dark:bg-card-dark border border-gray-200 dark:border-gray-800 shadow-sm overflow-hidden">
+                    <!-- Chat History -->
+                    <div class="flex-1 p-4 flex flex-col gap-4 overflow-y-auto max-h-[400px]">
+                        <!-- User Message -->
+                        <div class="flex justify-end">
+                            <div
+                                class="bg-primary text-white px-4 py-3 rounded-2xl rounded-tr-sm max-w-[85%] text-sm leading-relaxed shadow-sm">
+                                What is the specific flash point mentioned in section 9?
+                            </div>
+                        </div>
+                        <!-- AI Response -->
+                        <div class="flex justify-start gap-3">
+                            <div
+                                class="h-8 w-8 rounded-full bg-gradient-to-tr from-primary to-blue-400 flex items-center justify-center text-white shrink-0 mt-1">
+                                <span class="material-symbols-outlined text-[16px]">science</span>
+                            </div>
+                            <div
+                                class="bg-gray-100 dark:bg-gray-800 text-text-main-light dark:text-text-main-dark px-4 py-3 rounded-2xl rounded-tl-sm max-w-[85%] text-sm leading-relaxed border border-gray-200 dark:border-gray-700">
+                                <p>According to Section 9 of the uploaded document, the flash point for Methanol is
+                                    <strong>11.0°C (51.8°F)</strong> closed cup.</p>
+                                <div class="mt-2 flex gap-2">
+                                    <button
+                                        class="text-xs bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-2 py-1 rounded hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">Copy</button>
+                                    <button
+                                        class="text-xs bg-white dark:bg-gray-700 border border-gray-200 dark:border-gray-600 px-2 py-1 rounded hover:bg-gray-50 dark:hover:bg-gray-600 transition-colors">Cite</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Input Area -->
+                    <div class="p-3 bg-gray-50 dark:bg-[#151f29] border-t border-gray-200 dark:border-gray-800">
+                        <div class="flex gap-2">
+                            <div class="relative flex-1">
+                                <input
+                                    class="w-full h-10 pl-4 pr-10 rounded-full bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 text-sm focus:outline-none focus:border-primary focus:ring-1 focus:ring-primary text-text-main-light dark:text-text-main-dark placeholder-gray-400 dark:placeholder-gray-500"
+                                    placeholder="Ask about toxicity, disposal..." type="text" />
+                                <button
+                                    class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400 hover:text-primary transition-colors">
+                                    <span class="material-symbols-outlined text-[20px]">mic</span>
+                                </button>
+                            </div>
+                            <button
+                                class="h-10 w-10 rounded-full bg-primary flex items-center justify-center text-white shadow-md hover:bg-blue-600 transition-colors">
+                                <span class="material-symbols-outlined text-[20px]">send</span>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- Bottom Action -->
+            <div class="pb-4">
+                <button
+                    class="w-full h-12 flex items-center justify-center gap-2 rounded-xl bg-text-main-light dark:bg-white text-white dark:text-text-main-light font-bold text-base shadow-lg hover:opacity-90 transition-opacity">
+                    <span class="material-symbols-outlined">download</span>
+                    Download AI-Summarized PDF
+                </button>
+            </div>
+        </main>
+    </div>
+</body>
+
+</html>

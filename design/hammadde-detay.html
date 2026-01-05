@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Raw Material Details - ChemAI</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Google Fonts -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&amp;family=Noto+Sans:wght@400;500;600;700&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Material Symbols -->
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <link
+        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+        rel="stylesheet" />
+    <!-- Theme Configuration -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#339cff",
+                        "primary-dark": "#2b85d9",
+                        "background-light": "#f5f7f8",
+                        "background-dark": "#0f1923",
+                        "card-light": "#ffffff",
+                        "card-dark": "#1a2732",
+                    },
+                    fontFamily: {
+                        "display": ["Space Grotesk", "sans-serif"],
+                        "body": ["Noto Sans", "sans-serif"]
+                    },
+                    borderRadius: { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "2xl": "1rem", "full": "9999px" },
+                },
+            },
+        }
+    </script>
+    <style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+
+        /* Custom scrollbar hiding for clean UI */
+        .no-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+
+        .no-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+    </style>
+    <style>
+        body {
+            min-height: max(884px, 100dvh);
+        }
+    </style>
+</head>
+
+<body
+    class="bg-background-light dark:bg-background-dark text-gray-900 dark:text-gray-100 font-display antialiased overflow-hidden h-screen flex flex-col">
+    <!-- Top Navigation Bar -->
+    <header
+        class="flex items-center bg-card-light dark:bg-card-dark p-4 pb-2 justify-between border-b border-gray-100 dark:border-gray-800 shrink-0 z-20">
+        <button
+            class="text-gray-900 dark:text-white flex size-10 shrink-0 items-center justify-center rounded-full hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+            <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <h2
+            class="text-gray-900 dark:text-white text-lg font-bold leading-tight tracking-[-0.015em] flex-1 text-center pr-10">
+            Raw Material Details
+        </h2>
+    </header>
+    <!-- Main Scrollable Content -->
+    <main class="flex-1 overflow-y-auto no-scrollbar pb-32">
+        <div class="relative flex flex-col w-full max-w-md mx-auto p-4 gap-4">
+            <!-- Hero Section: Title & Chips -->
+            <div class="flex flex-col gap-2 pt-2">
+                <div class="flex flex-col">
+                    <h1 class="text-gray-900 dark:text-white tracking-tight text-[32px] font-bold leading-tight">Acetone
+                    </h1>
+                    <p class="text-gray-500 dark:text-gray-400 text-lg font-medium">Propan-2-one</p>
+                </div>
+                <div class="flex gap-2 flex-wrap mt-2">
+                    <!-- CAS Chip -->
+                    <div
+                        class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-gray-100 dark:bg-gray-800 px-3">
+                        <span class="material-symbols-outlined text-gray-500 text-[18px]">tag</span>
+                        <p class="text-gray-700 dark:text-gray-300 text-sm font-medium">CAS: 67-64-1</p>
+                    </div>
+                    <!-- Status Chip -->
+                    <div
+                        class="flex h-8 shrink-0 items-center justify-center gap-x-2 rounded-lg bg-green-50 dark:bg-green-900/20 px-3 border border-green-100 dark:border-green-800">
+                        <span
+                            class="material-symbols-outlined text-green-600 dark:text-green-400 text-[18px]">check_circle</span>
+                        <p class="text-green-700 dark:text-green-400 text-sm font-medium">In Stock</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Basic Information Card -->
+            <div
+                class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary">info</span>
+                    <h3 class="text-lg font-bold leading-tight">Basic Information</h3>
+                </div>
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Formula</span>
+                        <span class="text-base font-medium text-gray-900 dark:text-gray-100">C₃H₆O</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Mol. Weight</span>
+                        <span class="text-base font-medium text-gray-900 dark:text-gray-100">58.08 g/mol</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Appearance</span>
+                        <span class="text-base font-medium text-gray-900 dark:text-gray-100">Colorless liquid</span>
+                    </div>
+                    <div class="flex flex-col gap-1">
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider">Purity</span>
+                        <span class="text-base font-medium text-gray-900 dark:text-gray-100">≥ 99.5%</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Safety & Handling Card -->
+            <div
+                class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center justify-between mb-4">
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-orange-500">health_and_safety</span>
+                        <h3 class="text-lg font-bold leading-tight">Safety &amp; Handling</h3>
+                    </div>
+                </div>
+                <!-- Warning Box -->
+                <div class="bg-orange-50 dark:bg-orange-900/20 border-l-4 border-orange-500 p-3 rounded-r-lg mb-5">
+                    <p class="text-sm text-orange-800 dark:text-orange-200 font-medium leading-relaxed">
+                        <strong class="block mb-1">Danger</strong>
+                        Highly flammable liquid and vapor. Causes serious eye irritation. May cause drowsiness or
+                        dizziness.
+                    </p>
+                </div>
+                <!-- Pictograms & PPE -->
+                <div class="flex flex-col gap-4">
+                    <div>
+                        <span
+                            class="text-xs font-medium text-gray-400 uppercase tracking-wider block mb-2">Hazards</span>
+                        <div class="flex gap-3">
+                            <div class="size-10 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-red-600"
+                                title="Flammable">
+                                <span class="material-symbols-outlined">local_fire_department</span>
+                            </div>
+                            <div class="size-10 rounded-md bg-gray-100 dark:bg-gray-800 flex items-center justify-center text-orange-600"
+                                title="Irritant">
+                                <span class="material-symbols-outlined">warning</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <span class="text-xs font-medium text-gray-400 uppercase tracking-wider block mb-2">Required
+                            PPE</span>
+                        <div class="flex gap-3">
+                            <div
+                                class="flex items-center gap-2 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700">
+                                <span
+                                    class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-sm">visibility</span>
+                                <span class="text-xs font-medium text-gray-700 dark:text-gray-300">Goggles</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-2 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700">
+                                <span
+                                    class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-sm">back_hand</span>
+                                <span class="text-xs font-medium text-gray-700 dark:text-gray-300">Gloves</span>
+                            </div>
+                            <div
+                                class="flex items-center gap-2 bg-gray-50 dark:bg-gray-800 px-3 py-1.5 rounded-full border border-gray-100 dark:border-gray-700">
+                                <span
+                                    class="material-symbols-outlined text-gray-600 dark:text-gray-300 text-sm">air</span>
+                                <span class="text-xs font-medium text-gray-700 dark:text-gray-300">Ventilation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Physical Properties -->
+            <div
+                class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-800">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary">science</span>
+                    <h3 class="text-lg font-bold leading-tight">Physical Properties</h3>
+                </div>
+                <div class="space-y-3">
+                    <div
+                        class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2 last:border-0 last:pb-0">
+                        <span class="text-gray-500 dark:text-gray-400">Boiling Point</span>
+                        <span class="font-medium text-gray-900 dark:text-gray-100">56.08 °C</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2 last:border-0 last:pb-0">
+                        <span class="text-gray-500 dark:text-gray-400">Melting Point</span>
+                        <span class="font-medium text-gray-900 dark:text-gray-100">-95 °C</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2 last:border-0 last:pb-0">
+                        <span class="text-gray-500 dark:text-gray-400">Density</span>
+                        <span class="font-medium text-gray-900 dark:text-gray-100">0.7845 g/cm³</span>
+                    </div>
+                    <div
+                        class="flex justify-between items-center border-b border-gray-100 dark:border-gray-800 pb-2 last:border-0 last:pb-0">
+                        <span class="text-gray-500 dark:text-gray-400">Solubility</span>
+                        <span class="font-medium text-gray-900 dark:text-gray-100">Miscible with water</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Inventory & Supply -->
+            <div
+                class="bg-card-light dark:bg-card-dark rounded-xl p-5 shadow-sm border border-gray-100 dark:border-gray-800 mb-4">
+                <div class="flex items-center gap-2 mb-4">
+                    <span class="material-symbols-outlined text-primary">inventory_2</span>
+                    <h3 class="text-lg font-bold leading-tight">Inventory Status</h3>
+                </div>
+                <div class="space-y-4">
+                    <!-- Stock Level -->
+                    <div>
+                        <div class="flex justify-between text-sm mb-2">
+                            <span class="text-gray-500 dark:text-gray-400">Current Stock</span>
+                            <span class="font-bold text-gray-900 dark:text-gray-100">500mL / 1000mL</span>
+                        </div>
+                        <div class="h-2.5 w-full bg-gray-100 dark:bg-gray-800 rounded-full overflow-hidden">
+                            <div class="h-full bg-primary rounded-full w-1/2"></div>
+                        </div>
+                    </div>
+                    <div class="grid grid-cols-2 gap-4 mt-2">
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[20px]">location_on</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Location</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Cabinet A-4</span>
+                                <span class="text-[10px] text-red-400 font-medium">Flammables</span>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-3">
+                            <div class="mt-0.5 text-gray-400">
+                                <span class="material-symbols-outlined text-[20px]">calendar_clock</span>
+                            </div>
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Expires</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Dec 12, 2024</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="pt-3 border-t border-gray-100 dark:border-gray-800">
+                        <div class="flex items-center justify-between">
+                            <div class="flex flex-col">
+                                <span class="text-xs text-gray-500 dark:text-gray-400">Supplier</span>
+                                <span class="text-sm font-medium text-gray-900 dark:text-gray-100">Sigma-Aldrich</span>
+                            </div>
+                            <span
+                                class="text-xs bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-gray-600 dark:text-gray-300 font-mono">#179124</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Usage History (Collapsed/Teaser) -->
+            <div
+                class="bg-card-light dark:bg-card-dark rounded-xl p-4 shadow-sm border border-gray-100 dark:border-gray-800 flex items-center justify-between group cursor-pointer hover:bg-gray-50 dark:hover:bg-gray-800/50 transition-colors">
+                <div class="flex items-center gap-3">
+                    <div class="bg-blue-50 dark:bg-blue-900/20 text-primary p-2 rounded-lg">
+                        <span class="material-symbols-outlined text-[20px]">history</span>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-base font-bold text-gray-900 dark:text-white">Usage History</span>
+                        <span class="text-xs text-gray-500">Last used 2 days ago in Exp #442</span>
+                    </div>
+                </div>
+                <span class="material-symbols-outlined text-gray-400">chevron_right</span>
+            </div>
+        </div>
+    </main>
+    <!-- Bottom Actions & Navigation Wrapper -->
+    <div class="bg-card-light dark:bg-card-dark border-t border-gray-200 dark:border-gray-800 shrink-0 z-30">
+        <!-- Sticky Action Buttons -->
+        <div class="px-4 py-3 flex gap-3">
+            <button
+                class="flex-1 h-12 flex items-center justify-center gap-2 rounded-xl border border-gray-300 dark:border-gray-600 bg-transparent text-gray-900 dark:text-white font-bold text-sm hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors">
+                <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                Order More
+            </button>
+            <button
+                class="flex-[2] h-12 flex items-center justify-center gap-2 rounded-xl bg-primary hover:bg-primary-dark text-white font-bold text-sm shadow-md shadow-primary/20 transition-colors">
+                <span class="material-symbols-outlined text-[20px]">science</span>
+                Add to Planner
+            </button>
+        </div>
+        <!-- Bottom Navigation -->
+        <nav class="flex justify-around items-center pb-6 pt-2">
+            <a class="flex flex-col items-center gap-1 w-full text-gray-400 hover:text-primary transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">home</span>
+                <span class="text-[10px] font-medium">Home</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 w-full text-gray-400 hover:text-primary transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">search</span>
+                <span class="text-[10px] font-medium">Search</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 w-full text-primary" href="#">
+                <span class="material-symbols-outlined fill-1">inventory_2</span>
+                <span class="text-[10px] font-medium">Inventory</span>
+            </a>
+            <a class="flex flex-col items-center gap-1 w-full text-gray-400 hover:text-primary transition-colors"
+                href="#">
+                <span class="material-symbols-outlined">lab_profile</span>
+                <span class="text-[10px] font-medium">Experiments</span>
+            </a>
+        </nav>
+    </div>
+</body>
+
+</html>

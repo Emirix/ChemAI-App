@@ -1,0 +1,69 @@
+{
+  "meta": {
+    "project": "AI Denetçi Chemical Compliance Audit System",
+    "date": "2025-12-30",
+    "prepared_by": "Software Development Manager"
+  },
+  "product_overview": "AI Denetçi is an enterprise-grade, role-based chemical compliance audit system integrated into the ChemAI platform, designed to analyze SDS, TDS, and CLP documents through three specialized AI roles, ensuring regulatory compliance and professional audit-ready reporting.",
+  "core_goals": [
+    "Enable precise chemical safety audits from multiple professional perspectives: Inspector, Regulatory Expert, and R&D Chemist.",
+    "Provide formal, technically accurate, and audit-ready output that aligns strictly with CLP, REACH, KKDİK, and SEA regulations.",
+    "Support multi-language audits for Turkish, Arabic, Farsi, and English to accommodate diverse user needs.",
+    "Offer both single-role and multi-role audit modes with clear, color-coded, and expandable audit results in a professional UI.",
+    "Ensure robust backend validation, error handling, and secure API communication to maintain data integrity and compliance."
+  ],
+  "key_features": [
+    "Role-Based AI Audits simulating Government Inspector, Regulatory Expert, and R&D Chemist perspectives.",
+    "Formal and conservative audit results with clear PASS, CONDITIONAL, and FAIL statuses and severity distinctions.",
+    "Multi-language audit support including Turkish, Arabic, Farsi, and English.",
+    "Flutter-based AuditScreen UI with role selection, mode toggling (single or multi-role), expandable findings, and dark/light theme support.",
+    "Backend API endpoints for single-role audit, multi-role audit, and quick audit, with comprehensive request validation and structured JSON responses.",
+    "Integration with Safety Data Screen, TDS Screen, and Document Library for seamless audit initiation.",
+    "Use of Google Gemini AI model for generating structured, role-specific, regulation-compliant audit reports.",
+    "Strict constraints forbidding marketing language, disclaimers, or any contradiction of chemical safety regulations in output."
+  ],
+  "user_flow_summary": [
+    "User accesses the Safety Data Screen, TDS Screen, or Document Library and initiates an audit via button or icon.",
+    "On AuditScreen, user selects single role or multi-role audit mode.",
+    "User selects one or multiple AI audit roles: Inspector, Regulatory Expert, and/or R&D Chemist.",
+    "User submits the document for audit; the app sends an API request to the backend service.",
+    "Backend AuditController validates request, then invokes AuditService to query Google Gemini with role-specific prompts.",
+    "Google Gemini processes document data and returns structured JSON with findings, statuses, and professional summaries.",
+    "Backend validates JSON response and returns it to frontend.",
+    "AuditScreen updates UI to display color-coded status cards, critical and positive findings grouped by severity, and professional summary text.",
+    "User can expand findings, switch audit modes, or retry in case of errors.",
+    "Audited documents can be confidently submitted to real-world regulators with documented compliance."
+  ],
+  "validation_criteria": [
+    "All audits produce valid JSON strictly matching the defined AuditResult or MultiRoleAuditResult models.",
+    "Audit results must never contradict CLP, REACH, KKDİK, SEA regulations and always take a conservative approach to risk flagging.",
+    "UI correctly displays audit status with appropriate colors and clear severity badges for critical and warning findings.",
+    "API endpoints return proper success/error responses with error handling for invalid input.",
+    "Multi-role audit returns consolidated overall assessment reflecting combined role results.",
+    "Audit outputs use formal, technical, and professional language without marketing or disclaimers.",
+    "Role-specific audit scopes and outputs are consistent with defined perspectives and findings structures.",
+    "Integration points (Safety Data Screen, TDS Screen, Document Library) trigger audits correctly and show reliable results.",
+    "The system provides user-friendly error handling and retry mechanisms in both backend and frontend.",
+    "Performance optimizations ensure responsive UI and non-blocking operations during audits."
+  ],
+  "code_summary": {
+    "tech_stack": {
+      "frontend": "Flutter",
+      "backend": "Node.js (Express)",
+      "database": "Supabase",
+      "ai": "Google Gemini"
+    },
+    "features": [
+      "SDS (Safety Data Sheet) generation and analysis",
+      "TDS (Technical Data Sheet) generation and analysis",
+      "AI Audit (AI Denetçi) for chemical safety compliance",
+      "Multi-language support (Turkish, Arabic, Farsi, English)",
+      "PDF generation for SDS/TDS",
+      "Zikir counter functionality"
+    ],
+    "main_entry_points": {
+      "frontend": "lib/main.dart",
+      "backend": "backend/server.js"
+    }
+  }
+}
