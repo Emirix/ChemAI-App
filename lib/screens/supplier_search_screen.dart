@@ -50,32 +50,9 @@ class _SupplierSearchScreenState extends State<SupplierSearchScreen> {
 
     final results = await _apiService.searchSuppliers(query);
     
-    // Group results by supplier (tid)
-    final Map<int, Map<String, dynamic>> groupedSuppliers = {};
-    if (results != null) {
-      for (var s in results) {
-        final tid = s['tid'] as int?;
-        if (tid == null) continue;
-        
-        if (!groupedSuppliers.containsKey(tid)) {
-          groupedSuppliers[tid] = {
-            ...s,
-            'matched_products': <String>{},
-          };
-        }
-        
-        if (s['matched_product'] != null) {
-          (groupedSuppliers[tid]!['matched_products'] as Set<String>).add(s['matched_product'] as String);
-        }
-      }
-    }
-
-    final finalSuppliers = groupedSuppliers.values.map((s) => {
-      ...s,
-      'matched_products': (s['matched_products'] as Set<String>).toList(),
-    }).toList();
+    final finalSuppliers = results ?? [];
     
-    // Extract unique cities from grouped results
+    // Extract unique cities from results
     final cities = <String>{};
     for (var s in finalSuppliers) {
       final il = (s['il'] as String?)?.trim().toUpperCase();
