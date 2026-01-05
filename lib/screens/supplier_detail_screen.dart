@@ -276,7 +276,7 @@ class SupplierDetailScreen extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 4),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.between,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Text(
             title,
@@ -353,9 +353,11 @@ class SupplierDetailScreen extends StatelessWidget {
       onTap: onTap,
       child: Container(
         padding: const EdgeInsets.all(16),
-        border: Border(
-          bottom: BorderSide(
-            color: isDark ? Colors.white10 : Colors.grey.shade100,
+        decoration: BoxDecoration(
+          border: Border(
+            bottom: BorderSide(
+              color: isDark ? Colors.white10 : Colors.grey.shade100,
+            ),
           ),
         ),
         child: Row(
@@ -400,7 +402,7 @@ class SupplierDetailScreen extends StatelessWidget {
       padding: const EdgeInsets.all(16),
       color: isDark ? Colors.black26 : Colors.grey.shade50.withOpacity(0.5),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.between,
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
